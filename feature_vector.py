@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 import os
-#import tensorflow as tf
-#from keras.models import Model 
-#from keras.utils import img_to_array # convert output to vector
+import tensorflow as tf
+from keras.models import Model 
+from keras.utils import img_to_array
 import pickle
 
 def get_model():

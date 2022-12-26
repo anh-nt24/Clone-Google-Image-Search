@@ -1,10 +1,10 @@
 from feature_vector import *
 
-train = False
-if train:
+is_train = False
+if is_train:
     train()
 
-img_path = 'Database/test/image_00200.jpg'
+img_path = 'Database/test/image_04252.jpg'
 
 model = get_model()
 s = get_feature_vector(model, img_path)
