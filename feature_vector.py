@@ -6,6 +6,8 @@ import tensorflow as tf
 from keras.models import Model 
 from keras.utils import img_to_array
 import pickle
+from bson.binary import Binary
+from Database.db import get_database
 
 def get_model():
     mobile = tf.keras.applications.mobilenet.MobileNet(weights='imagenet')
@@ -28,17 +30,18 @@ def get_feature_vector(model, path):
     return vector
 
 base_dir = '.'
-vector_file = 'Database/feature.pkl'
-path_file = 'Database/path.pkl'
 db_dir = os.path.join(base_dir, 'images')
-def train():
-    vectors = []
-    paths = []
+dbname = get_database()
+collection = dbname['ft_vector']
+
+if __name__ == '__main__':
     model = get_model()
+    document = []
     for i in os.listdir(db_dir):
         img_path = os.path.join(db_dir, i)
-        vectors.append(get_feature_vector(model, img_path))
-        paths.append(img_path)
-    
-    pickle.dump(vectors, open(vector_file, 'wb'))
-    pickle.dump(paths, open(path_file, 'wb'))
+        v = get_feature_vector(model, img_path)
+        document.append({
+            'vector': Binary(pickle.dumps(get_feature_vector(model, img_path), protocol=2), subtype=128),
+            'path': img_path
+        })
+    collection.insert_many(document)

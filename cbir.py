@@ -1,22 +1,21 @@
 from feature_vector import *
 
-is_train = False
-if is_train:
-    train()
-
 img_path = 'Database/test/image_04252.jpg'
 
 model = get_model()
 s = get_feature_vector(model, img_path)
-v = pickle.load(open(vector_file, 'rb'))
-p = pickle.load(open(path_file, 'rb'))
+data = collection.find()
+v, p = [], []
+for i in data:
+    v.append(pickle.loads(i['vector']))
+    p.append(i['path'])
 
 d = np.linalg.norm(s-v, axis=1)
 w = 10
 idx = np.argsort(d)[:w] # the smaller the distance is, the more the same they are 
 neighbor = dict({(p[i], d[i]) for i in idx})
 imgs = [Image.open(i) for i in neighbor.keys()]
-
+p
 plt.imshow(Image.open(img_path))
 plt.title('Queried Image')
 dis = [*neighbor.values()]
