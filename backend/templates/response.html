@@ -1,0 +1,15 @@
+<div style="padding: 20px">
+    {% if list_img %}
+        <h4>Image you want to search</h4>
+        <div style="padding: 10px">
+            <img src="{{ url_for('display_image', filename=list_img[0]) }}" alt="not found an image" style="width:300px">
+        </div>
+        <h4>Found {{len}} results</h4>
+        <div>
+            {% for i in list_img[1] %}
+            <img class="col-md-6 col-lg-4 col-xl-3" src="{{ url_for('display_image', filename=i) }}" alt="not found an image" style="width: 200px; padding: 3px">
+            {% endfor %}
+        </div>
+        <!-- <a href="#" id="loadmore">Load More</a> -->
+    {% endif %}
+</div>

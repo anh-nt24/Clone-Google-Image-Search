@@ -7,6 +7,8 @@ from keras.models import Model
 from keras.utils import img_to_array
 import pickle
 from bson.binary import Binary
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from Database.db import get_database
 
 def get_model():
@@ -29,7 +31,7 @@ def get_feature_vector(model, path):
     vector = vector/np.linalg.norm(vector)
     return vector
 
-base_dir = '.'
+base_dir = '..'
 db_dir = os.path.join(base_dir, 'images')
 dbname = get_database()
 collection = dbname['ft_vector']
