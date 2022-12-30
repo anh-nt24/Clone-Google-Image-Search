@@ -26,14 +26,18 @@ This repo is a demo of google image searching, using a simple technique in compu
   
 ## How to use:
 1. prepare a dataset and create a folder structure
-2. run 'python3 feature_vector' to extract all images feature and store in database (MongoDB)
-3. change directory to backend folder 'cd backend'
-4. run 'python3 app.py' to deploy on web
-5. open localhost to view your website
+2. enter `mongod` and connect to MongoDB
+3. run `python3 feature_vector` to extract all images feature and store in database
+4. change directory to backend folder `cd backend`
+5. run `python3 app.py` to deploy on web
+6. open localhost to view your website
  
 ## Results:
-![image](https://user-images.githubusercontent.com/106876168/209541095-902ec9ff-b1ba-478e-acd0-75d52e98b0b3.png)
 
-![image](https://user-images.githubusercontent.com/106876168/209541128-e49f26fd-a167-4fe3-b881-ca93f5eab78a.png)
+![image](https://user-images.githubusercontent.com/106876168/210039629-989ae36e-2cd5-42df-9d84-cca2dcc13bae.png)
+
+![image](https://user-images.githubusercontent.com/106876168/210039651-196757e1-33ee-4f6d-a591-2ac36ccc809d.png)
+
+
 
 
