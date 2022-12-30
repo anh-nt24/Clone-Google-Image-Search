@@ -22,11 +22,18 @@ This repo is a demo of google image searching, using a simple technique in compu
 ## About the project:
   - dataset source: [here](https://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html)
   - model to extract: mobilenet
-  - required libraries: Tensorflow, keras
-  - run `python3 cbir.py`
+  - required libraries: Tensorflow, keras, ngrok, flask
+  
+## How to use:
+1. prepare a dataset and create a folder structure
+2. run 'python3 feature_vector' to extract all images feature and store in database (MongoDB)
+3. change directory to backend folder 'cd backend'
+4. run 'python3 app.py' to deploy on web
+5. open localhost to view your website
  
 ## Results:
 ![image](https://user-images.githubusercontent.com/106876168/209541095-902ec9ff-b1ba-478e-acd0-75d52e98b0b3.png)
 
 ![image](https://user-images.githubusercontent.com/106876168/209541128-e49f26fd-a167-4fe3-b881-ca93f5eab78a.png)
+
 
